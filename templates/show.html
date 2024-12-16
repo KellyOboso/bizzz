@@ -1,0 +1,45 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block body %}
+<h2 class="text-center">MOTORIST DATA</h2>
+    <br>
+    <table class="table table-info container">
+    <tr>
+        <th>departure</th>
+        <th>destination</th>
+        <th>traveldate</th>
+        <th>buses</th>
+        <th>name</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>message</th>
+        <th>Action</th>
+    </tr>
+
+    {% for x in koob %}
+        <tr>
+            <td>{{ x.departure }}</td>
+            <td>{{ x.destination }}</td>
+            <td>{{ x.traveldate }}</td>
+            <td>{{ x.buses }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.phone }}</td>
+            <td>{{ x.message }}</td>
+            <td>
+                <a href="/edit/{{ x.id }}" class="btn btn-outline-dark">EDIT</a>
+                <a href="/delete/{{ x.id }}" class="btn btn-outline-danger">DELETE</a>
+                <a href="{% url 'pay' %}" class="btn btn-outline-success">PAY</a>
+            </td>
+        </tr>
+
+    {% endfor %}
+
+
+    </table>
+
+
+
+
+{% endblock %}

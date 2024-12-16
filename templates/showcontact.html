@@ -1,0 +1,36 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block body %}
+<h2 class="text-center">MOTORIST DATA</h2>
+    <br>
+    <table class="table table-info container">
+    <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>subject</th>
+        <th>message</th>
+        <th>Action</th>
+    </tr>
+
+    {% for x in oob %}
+        <tr>
+            <td>{{ x.name }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.subject }}</td>
+            <td>{{ x.message }}</td>
+            <td>
+                <a href="{% url 'contact' %}" class="btn btn-outline-danger">NEW ENTRY</a>
+                <a href="/delete/{{ x.id }}" class="btn btn-outline-danger">DELETE</a>
+            </td>
+        </tr>
+
+    {% endfor %}
+
+
+    </table>
+
+
+
+
+{% endblock %}
